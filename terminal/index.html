@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="gallery.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="shortcut icon" href="../journey/cdn/610a9b617744c726c80e42ec_favicon.png" type="image/png">
+    <meta name="description" content="Interactive terminal-style portfolio of Muhammad Ahmad Butt, Software & AI Engineer.">
+    <meta property="og:title" content="Terminal Portfolio | Muhammad Ahmad Butt">
+    <meta property="og:description" content="Interactive terminal-style portfolio of Muhammad Ahmad Butt, Software & AI Engineer.">
+    <meta property="og:image" content="../journey/cdn/6047aedcc580d046d3ce4941_open-graph.jpeg">
+    <meta property="og:type" content="website">
+</head>
+<body>
+    <div class="container">
+        <div class="terminal">
+            <div class="terminal-header">
+                <div class="terminal-buttons">
+                    <span class="terminal-button close"></span>
+                    <span class="terminal-button minimize"></span>
+                    <span class="terminal-button maximize"></span>
+                </div>
+                <div class="terminal-title">terminal</div>
+            </div>
+            <div class="terminal-content">
+                <div class="two-column-layout">
+                    <div class="left-column">
+                        <div class="profile-section">
+                            <div class="profile-gallery">
+                                <div class="gallery-item active">
+                                    <img src="images/chair_vr.jpg" alt="Mind">
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="images/trophy.jpg" alt="Trophy">
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="images/mind.png" alt="VR">
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="images/hero.jpg" alt="Hero">
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="images/back.jpg" alt="Back">
+                                </div>
+                                <div class="matrix-overlay"></div>
+                                <div class="scan-line"></div>
+                            </div>
+                            <div class="profile-info">
+                                <h1 class="name typing-effect">Muhammad Ahmad Butt</h1>
+                                <p class="title">Software Engineer</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right-column">
+                        <div class="terminal-nav">
+                            <span class="nav-item">help</span> |
+                            <span class="nav-item">about</span> |
+                            <span class="nav-item">projects</span> |
+                            <span class="nav-item">skills</span> |
+                            <span class="nav-item">experience</span> |
+                            <span class="nav-item">contact</span> |
+                            <span class="nav-item">education</span> |
+                            <span class="nav-item">certifications</span> |
+                            <span class="nav-item">leadership</span> |
+                            <span class="nav-item">journey</span> |
+                            <span class="nav-item">web</span> |
+                            <span class="nav-item">sudo</span> |
+                            <span class="nav-item">clear</span>
+                        </div>
+
+                        <div class="terminal-output">
+                            <div class="command-line">
+                                <span class="prompt">ahmad@portfolio:~$</span>
+                                <span class="command">welcome</span>
+                            </div>
+                            <div class="output welcome-message">
+                                <p>Hi, I'm Muhammad Ahmad Butt, a Software Engineering student at FAST NUCES.</p>
+                                <p>Welcome to my interactive <span style="color: #00ff00;">portfolio</span><span style="color: red;"> terminal</span>!</p>
+                                <p>Type <span class="highlight-text">'help'</span> to see available commands.</p>
+                            </div>
+                        </div>
+
+                        <div class="command-input">
+                            <span class="prompt">ahmad@portfolio:~$</span>
+                            <input type="text" class="input-field" autofocus spellcheck="false">
+                            <span class="tab-hint">TAB to complete</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="terminal-footer">
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Gallery functionality
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            let currentIndex = 0;
+            let interval;
+
+            // Initialize gallery auto-rotation
+            startGalleryRotation();
+
+            // Auto-rotate gallery
+            function startGalleryRotation() {
+                interval = setInterval(() => {
+                    currentIndex = (currentIndex + 1) % galleryItems.length;
+                    showImage(currentIndex);
+                }, 5000); // Change image every 5 seconds
+            }
+
+            // Reset interval when manually changing image
+            function resetInterval() {
+                clearInterval(interval);
+                startGalleryRotation();
+            }
+
+            // Show selected image
+            function showImage(index) {
+                galleryItems.forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                galleryItems[index].classList.add('active');
+                currentIndex = index;
+            }
+
+            // Matrix effect removed
+            
+            // Add 3D tilt effect based on mouse position
+            const profileGallery = document.querySelector('.profile-gallery');
+            
+            profileGallery.addEventListener('mousemove', function(e) {
+                const boundingRect = this.getBoundingClientRect();
+                const mouseX = e.clientX - boundingRect.left;
+                const mouseY = e.clientY - boundingRect.top;
+                
+                const centerX = boundingRect.width / 2;
+                const centerY = boundingRect.height / 2;
+                
+                const rotateY = (mouseX - centerX) / 20;
+                const rotateX = (centerY - mouseY) / 20;
+                
+                this.style.transform = `perspective(1000px) rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
+            });
+            
+            profileGallery.addEventListener('mouseleave', function() {
+                this.style.transform = 'perspective(1000px) rotateY(0) rotateX(0)';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+/* Responsive styles for Muhammad Ahmad's portfolio */
+
+/* Mobile-specific adjustments */
+@media screen and (max-width: 767px) {
+  .item-img-w img {
+    width: 100% !important;
+    object-fit: contain !important;
+    max-height: 200px !important;
+    transform: none !important;
+  }
+  
+  .h-img {
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  .h-inner.set2 img, 
+  .h-inner.set3 img, 
+  .h-inner.set4 img,
+  .h-inner.set5 img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+  }
+}
+
+/* Tablet adjustments */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .item-img-w img {
+    transform: translateY(0vh) !important;
+    max-height: 250px !important;
+  }
+}
+
+/* Prevent image alt text from showing when image fails to load */
+img {
+  color: transparent;
+}
+
+/* Fallback for failed images */
+img.error {
+  display: none;
+}

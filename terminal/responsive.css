@@ -1,0 +1,108 @@
+/* Responsive styles for the terminal portfolio */
+
+@media (max-width: 992px) {
+    .container {
+        width: 95%;
+        height: 85vh;
+    }
+    
+    .terminal-content {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        height: 90vh;
+    }
+    
+    .profile-section {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .profile-image {
+        margin: 0 auto 15px;
+        width: 100px;
+        height: 140px;
+    }
+    
+    .name {
+        font-size: 24px;
+    }
+    
+    .terminal-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+        font-size: 14px;
+    }
+    
+    .output {
+        margin-left: 10px;
+    }
+    
+    .project {
+        margin-bottom: 15px;
+        padding-left: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        height: 95vh;
+    }
+    
+    .terminal-content {
+        padding: 10px;
+    }
+    
+    .terminal-header {
+        padding: 8px 10px;
+    }
+    
+    .terminal-title {
+        font-size: 12px;
+        margin-left: 15px;
+    }
+    
+    .name {
+        font-size: 22px;
+    }
+    
+    .title {
+        font-size: 14px;
+    }
+    
+    .terminal-nav {
+        font-size: 12px;
+        word-spacing: 2px;
+        gap: 5px;
+    }
+    
+    .command-line {
+        margin: 10px 0 5px;
+    }
+    
+    .prompt, .command {
+        font-size: 14px;
+    }
+    
+    .output {
+        margin-left: 5px;
+        font-size: 14px;
+    }
+    
+    .project {
+        padding-left: 5px;
+    }
+    
+    .input-field {
+        font-size: 14px;
+    }
+    
+    .terminal-footer {
+        font-size: 12px;
+    }
+}
